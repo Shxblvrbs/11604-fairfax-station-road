@@ -42,7 +42,7 @@ const Slider = () => {
         const lastCard = cards.pop();
         const firstCard = cards.shift();
 
-        if (event.deltaY > 0) {
+        const animateDown = () =>  {
             gsap.to(lastCard, {
                 y: "+=150%",
                 duration: 0.75,
@@ -59,7 +59,7 @@ const Slider = () => {
             });
         }
 
-        else {
+        const animateUp = () => {
             gsap.to(firstCard, {
                 y: "-=150%", // Move the card upwards
                 duration: 0.75,
@@ -69,53 +69,48 @@ const Slider = () => {
                         slider.append(firstCard); // Move first card to the end
                         initializeCards();
                         setTimeout(() => {
-                            setIsAnimating(false);
+                        setIsAnimating(false);
                         }, 1000);
                     }, 300);
                 },
             });
         }
-    };
-    
-    //scroll and drag setup
-    let currentScrollPosition = 0;
-    let lastScrollY = 0;
-    let smoothScrollY = 0;
 
-    //scrolling animations
-
-    const onWheelScroll = (event) => {
-        currentScrollPosition -= event.deltaY;
-    }
-
-    //dragging animation
-    let newX = 0;
-    let startY = 0;
-    let currentY = 0;
-    let isDragging = false;
-
-    const onDragStart = (event) => {
-        startY = event.clientY || event.touches[0].clientY;
-        isDragging = true;
-    }
-
-    const onDragMove = (event) => {
-        if (!isDragging) return;
-        currentY = event.clientY || event.touches[0].clientY;
-        currentScrollPosition += (currentY - startY) * 3;
-        startY = currentY;
+        if (event.deltaY > 0) {
+            animateDown();
+        } else if (event.deltaY < 0) {
+            animateUp();
+        }
     };
 
-    const onDragEnd = () => {
-        isDragging = false;
-    }   
+    //mobile functionality
+    let touchStartY = 0;
+
+    const handleTouchStart = (event) => {
+        touchStartY = event.touches[0].clientY; // Get the initial Y position of the touch
+    };
+
+    const handleTouchEnd = (event) => {
+        const touchEndY = event.changedTouches[0].clientY; // Get the Y position when the touch ends
+        const deltaY = touchStartY - touchEndY; // Calculate the swipe distance
+
+        if (Math.abs(deltaY) > 50) { // Minimum swipe threshold
+            if (deltaY > 0) {
+                // Swiping up
+                handleClick({ deltaY: 1 });
+            } else {
+                // Swiping down
+                handleClick({ deltaY: -1 });
+            }
+        }
+    };
 
   return (
     <>
         <div className="container">
             <div className="slider" ref={sliderRef}>
                 {videos.map((video) => (
-                    <div className="card" onDrag={handleClick} onScroll={handleClick} onWheel={handleClick} key={video.id}>
+                    <div className="card" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onDrag={handleClick} onScroll={handleClick} onWheel={handleClick} key={video.id}>
                         <div className="card-info">
                             <div className="card-item">
                                 <p>{video.date}</p>
