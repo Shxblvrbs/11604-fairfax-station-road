@@ -115,7 +115,7 @@ const Slider = () => {
         <div className="container">
             <div className="slider" ref={sliderRef}>
                 {videos.map((video) => (
-                    <div className="card" onWheel={handleClick} key={video.id}>
+                    <div className="card" onDrag={handleClick} onScroll={handleClick} onWheel={handleClick} key={video.id}>
                         <div className="card-info">
                             <div className="card-item">
                                 <p>{video.date}</p>
