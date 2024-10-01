@@ -76,9 +76,9 @@ const Slider = () => {
             });
         }
 
-        if (event.deltaY < 0) {
+        if (event.deltaY > 0) {
             animateDown();
-        } else if (event.deltaY > 0) {
+        } else if (event.deltaY < 0) {
             animateUp();
         }
     };
@@ -95,7 +95,7 @@ const Slider = () => {
         const deltaY = touchStartY - touchEndY; // Calculate the swipe distance
 
         if (Math.abs(deltaY) > 50) { // Minimum swipe threshold
-            if (deltaY > 0) {
+            if (deltaY < 0) {
                 // Swiping up
                 handleClick({ deltaY: 1 });
             } else {
