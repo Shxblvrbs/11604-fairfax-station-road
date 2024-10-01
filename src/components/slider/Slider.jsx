@@ -76,9 +76,9 @@ const Slider = () => {
             });
         }
 
-        if (event.deltaY > 0) {
+        if (event.deltaY < 0) {
             animateDown();
-        } else if (event.deltaY < 0) {
+        } else if (event.deltaY > 0) {
             animateUp();
         }
     };
