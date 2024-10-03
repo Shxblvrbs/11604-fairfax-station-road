@@ -15,6 +15,7 @@ const Slider = () => {
     const [isAnimating, setIsAnimating] = useState(false);
     const [isClient, setIsClient] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu open/close
+    const [currentFrontCard, setCurrentFrontCard] = useState(videos.length - 1);  // Track index of front card
 
     useEffect(() => {
         setIsClient(true);
@@ -55,6 +56,7 @@ const Slider = () => {
                     setTimeout(() => {
                         slider.prepend(lastCard);
                         initializeCards();
+                        setCurrentFrontCard((prev) => (prev === 0 ? videos.length - 1 : prev - 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
                         }, 1000);
@@ -72,6 +74,7 @@ const Slider = () => {
                     setTimeout(() => {
                         slider.append(firstCard); // Move first card to the end
                         initializeCards();
+                        setCurrentFrontCard((prev) => (prev === videos.length - 1 ? 0 : prev + 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
                         }, 1000);
@@ -123,16 +126,15 @@ const Slider = () => {
                     <div className="slider" ref={sliderRef}>
                         {videos.map((video, index) => (
                             <div
-                                className={`card ${index === videos.length - 1 ? "cursor-pointer hover:shadow-lg" : ""}`}
+                                className={`card ${index === currentFrontCard ? "cursor-pointer hover:shadow-lg" : ""}`}
                                 onTouchStart={handleTouchStart}
                                 onTouchEnd={handleTouchEnd}
                                 key={video.id}
                                 onClick={() => {
-                                    if (index === (videos.length - 1)) {
-                                        toggleMenu();
-                                    } // Open menu on click of the current card
+                                    if (index === currentFrontCard) {  // Check if the clicked card is the front card
+                                        toggleMenu();  // Open menu only if the front card is clicked
+                                    }
                                 }}
-                                
                             >
                                 <div className="card-info">
                                     <div className="card-item">
