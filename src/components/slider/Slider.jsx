@@ -4,16 +4,20 @@ import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import dynamic from 'next/dynamic';
 import { videos } from "./videos";
+import ShinyButton from "@/components/ui/shiny-button";
+import { IoIosArrowDropupCircle, IoIosArrowDropdownCircle } from "react-icons/io";
+import Menu from "@/components/menu/Menu"; // Import the Menu component
 
-const ReactPlayer = dynamic(() => import("react-player"), {ssr: false});
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const Slider = () => {
     const sliderRef = useRef(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [isClient, setIsClient] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu open/close
 
     useEffect(() => {
-        setIsClient(true)
+        setIsClient(true);
     }, []);
 
     useEffect(() => {
@@ -33,7 +37,7 @@ const Slider = () => {
         });
     };
 
-    const handleClick = (event) => {
+    const handleClick = (action) => {
         if (isAnimating) return;
         setIsAnimating(true);
 
@@ -42,7 +46,7 @@ const Slider = () => {
         const lastCard = cards.pop();
         const firstCard = cards.shift();
 
-        const animateDown = () =>  {
+        const animateUp = () => {
             gsap.to(lastCard, {
                 y: "+=150%",
                 duration: 0.75,
@@ -52,14 +56,14 @@ const Slider = () => {
                         slider.prepend(lastCard);
                         initializeCards();
                         setTimeout(() => {
-                        setIsAnimating(false);
+                            setIsAnimating(false);
                         }, 1000);
                     }, 300);
                 },
             });
-        }
+        };
 
-        const animateUp = () => {
+        const animateDown = () => {
             gsap.to(firstCard, {
                 y: "-=150%", // Move the card upwards
                 duration: 0.75,
@@ -69,21 +73,22 @@ const Slider = () => {
                         slider.append(firstCard); // Move first card to the end
                         initializeCards();
                         setTimeout(() => {
-                        setIsAnimating(false);
+                            setIsAnimating(false);
                         }, 1000);
                     }, 300);
                 },
             });
-        }
+        };
 
-        if (event.deltaY > 0) {
+        // Use the action parameter to determine the animation direction
+        if (action === "swipeDown") {
             animateDown();
-        } else if (event.deltaY < 0) {
+        } else if (action === "swipeUp") {
             animateUp();
         }
     };
 
-    //mobile functionality
+    // Mobile functionality
     let touchStartY = 0;
 
     const handleTouchStart = (event) => {
@@ -97,49 +102,88 @@ const Slider = () => {
         if (Math.abs(deltaY) > 50) { // Minimum swipe threshold
             if (deltaY < 0) {
                 // Swiping up
-                handleClick({ deltaY: 1 });
+                handleClick("swipeUp");
             } else {
                 // Swiping down
-                handleClick({ deltaY: -1 });
+                handleClick("swipeDown");
             }
         }
     };
 
-  return (
-    <>
-        <div className="container">
-            <div className="slider" ref={sliderRef}>
-                {videos.map((video) => (
-                    <div className="card" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onDrag={handleClick} onScroll={handleClick} onWheel={handleClick} key={video.id}>
-                        <div className="card-info">
-                            <div className="card-item">
-                                <p>{video.date}</p>
+    // Menu toggle function
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    return (
+        <>
+            <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} /> {/* Pass state and function as props */}
+            <div>
+                <div className="container">
+                    <div className="slider" ref={sliderRef}>
+                        {videos.map((video, index) => (
+                            <div
+                                className={`card ${index === videos.length - 1 ? "cursor-pointer hover:shadow-lg" : ""}`}
+                                onTouchStart={handleTouchStart}
+                                onTouchEnd={handleTouchEnd}
+                                key={video.id}
+                                onClick={() => {
+                                    if (index === (videos.length - 1)) {
+                                        toggleMenu();
+                                    } // Open menu on click of the current card
+                                }}
+                                
+                            >
+                                <div className="card-info">
+                                    <div className="card-item">
+                                        <p>{video.date}</p>
+                                    </div>
+                                    <div className="card-item">
+                                        <p>{video.title}</p>
+                                    </div>
+                                    <div className="card-item">
+                                        <p>{video.category}</p>
+                                    </div>
+                                </div>
+                                <div className="video-player">
+                                    <ReactPlayer 
+                                        url={`https://vimeo.com/${video.id}`}
+                                        controls={false}
+                                        autoPlay={true}
+                                        loop={true}
+                                        playing
+                                        muted
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </div>
                             </div>
-                            <div className="card-item">
-                                <p>{video.title}</p>
-                            </div>
-                            <div className="card-item">
-                                <p>{video.category}</p>
-                            </div>
-                        </div>
-                        <div className="video-player">
-                            <ReactPlayer 
-                                url={`https://vimeo.com/${video.id}`}
-                                controls={false}
-                                autoPlay={true}
-                                loop={true}
-                                playing
-                                muted
-                                width="100%"
-                                height="100%"
-                            />
-                        </div>
+                        ))}
                     </div>
-                ))}
+                    <div className="ml-6 invisible lg:visible flex justify-center lg:mt-36">
+                        <ShinyButton
+                            id="swipeUp"
+                            className="m-2 bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(240,100%,50%)]"
+                            onClick={() => handleClick("swipeUp")}
+                        >
+                            <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
+                                <IoIosArrowDropupCircle className="size-10" />
+                            </span>
+                        </ShinyButton>
+                        <ShinyButton
+                            id="swipeDown"
+                            className="m-2 border-white bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(240,100%,50%)]"
+                            onClick={() => handleClick("swipeDown")}
+                        >
+                            <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
+                                <IoIosArrowDropdownCircle className="size-10" />
+                            </span>
+                        </ShinyButton>
+                    </div>
+                </div>
             </div>
-        </div>
-    </>
-  );
+        </>
+    );
 };
 
 export default Slider;
