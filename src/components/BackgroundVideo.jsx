@@ -8,7 +8,7 @@ const BackgroundVideo = () => {
   return (
     <div className="background-video min-h-screen absolute pointer-events-none inset-0 -z-40 h-full opacity-95 -mt-5">
       <ReactPlayer
-      url={`https://vimeo.com/1016517215`} 
+      url={`https://vimeo.com/1017167084`} 
       controls={false}
       playing={true}  // This handles autoplay
       loop={true}
