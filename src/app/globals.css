@@ -37,6 +37,16 @@ p {
   overflow: hidden;
 }
 
+.heading {
+  position: absolute;
+  top: 0vh;
+  width: 100vw;
+  height: 100vh;
+  perspective: 175px;
+  perspective-origin: 50% 100%;
+  overflow: hidden;
+}
+
 .slider {
   position: absolute;
   top: 5vh;

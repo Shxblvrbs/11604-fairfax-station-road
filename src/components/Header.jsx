@@ -35,21 +35,21 @@ const Header = () => {
       <div className="text-center space-y-2">
         <h1
           ref={titleRef}
-          className="text-3xl md:text-5xl font-bold tracking-tight"
+          className="text-4xl md:text-6xl font-bold tracking-tight"
         >
           Virtual Tour
         </h1>
         <h2
           ref={subtitleRef}
-          className="text-base md:text-xl text-gray-400"
+          className="text-base md:text-2xl text-gray-400"
         >
           11604 Fairfax Station Rd, Fairfax Station, VA 22039
         </h2>
         <p
           ref={subtextRef}
-          className="text-xs md:text-base text-gray-500"
+          className="lg:invisible text-sm md:text-base text-gray-500"
         >
-          Swipe to Interact
+          (Swipe to Interact)
         </p>
       </div>
     </header>

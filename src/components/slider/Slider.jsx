@@ -8,6 +8,7 @@ import ShinyButton from "@/components/ui/shiny-button";
 import { IoIosArrowDropupCircle, IoIosArrowDropdownCircle } from "react-icons/io";
 import Menu from "@/components/menu/Menu"; // Import the Menu component
 import Image from "next/image";
+import Header from "../Header";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -121,6 +122,9 @@ const Slider = () => {
 
     return (
         <div>
+            <div className="heading">
+                <Header />
+            </div>
             {/* <div className="min-h-screen absolute pointer-events-none inset-0 -z-40 h-full opacity-50 -mt-5">
             <ReactPlayer
             url={`https://vimeo.com/1016517215`} 
@@ -174,7 +178,7 @@ const Slider = () => {
                     <div className="ml-6 invisible lg:visible flex justify-center lg:mt-36">
                         <ShinyButton
                             id="swipeUp"
-                            className="m-2 bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(240,100%,50%)]"
+                            className="m-2 bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(45,100%,50%)]"
                             onClick={() => handleClick("swipeUp")}
                         >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
@@ -183,7 +187,7 @@ const Slider = () => {
                         </ShinyButton>
                         <ShinyButton
                             id="swipeDown"
-                            className="m-2 border-white bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(240,100%,50%)]"
+                            className="m-2 border-white bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(45,100%,50%)]"
                             onClick={() => handleClick("swipeDown")}
                         >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
