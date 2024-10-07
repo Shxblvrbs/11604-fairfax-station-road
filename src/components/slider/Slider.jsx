@@ -61,8 +61,8 @@ const Slider = () => {
                         setCurrentFrontCard((prev) => (prev === 0 ? videos.length - 1 : prev - 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
-                        }, 1000);
-                    }, 300);
+                        }, 500);
+                    }, 150);
                 },
             });
         };
@@ -79,8 +79,8 @@ const Slider = () => {
                         setCurrentFrontCard((prev) => (prev === videos.length - 1 ? 0 : prev + 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
-                        }, 1000);
-                    }, 300);
+                        }, 500);
+                    }, 150);
                 },
             });
         };
