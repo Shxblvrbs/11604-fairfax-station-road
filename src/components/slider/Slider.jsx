@@ -7,6 +7,7 @@ import { videos } from "./videos";
 import ShinyButton from "@/components/ui/shiny-button";
 import { IoIosArrowDropupCircle, IoIosArrowDropdownCircle } from "react-icons/io";
 import Menu from "@/components/menu/Menu"; // Import the Menu component
+import Image from "next/image";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -119,9 +120,21 @@ const Slider = () => {
     };
 
     return (
-        <>
+        <div>
+            {/* <div className="min-h-screen absolute pointer-events-none inset-0 -z-40 h-full opacity-50 -mt-5">
+            <ReactPlayer
+            url={`https://vimeo.com/1016517215`} 
+            controls={false}
+            autoPlay={true}
+            loop={true}
+            playing
+            muted
+            width="100%"
+            height="100%"
+            />
+            </div> */}
             <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} /> {/* Pass state and function as props */}
-            <div>
+            <div className="z-10">
                 <div className="container">
                     <div className="slider" ref={sliderRef}>
                         {videos.map((video, index) => (
@@ -148,15 +161,11 @@ const Slider = () => {
                                     </div>
                                 </div>
                                 <div className="video-player">
-                                    <ReactPlayer 
-                                        url={`https://vimeo.com/${video.id}`}
-                                        controls={false}
-                                        autoPlay={true}
-                                        loop={true}
-                                        playing
-                                        muted
-                                        width="100%"
-                                        height="100%"
+                                    <Image
+                                    src="/public/image1.jpg"
+                                    width={100}
+                                    height={100}
+                                    alt="Picture"
                                     />
                                 </div>
                             </div>
@@ -169,7 +178,7 @@ const Slider = () => {
                             onClick={() => handleClick("swipeUp")}
                         >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
-                                <IoIosArrowDropupCircle className="size-10" />
+                                <IoIosArrowDropdownCircle className="size-10" />
                             </span>
                         </ShinyButton>
                         <ShinyButton
@@ -178,13 +187,13 @@ const Slider = () => {
                             onClick={() => handleClick("swipeDown")}
                         >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
-                                <IoIosArrowDropdownCircle className="size-10" />
+                                <IoIosArrowDropupCircle className="size-10" />
                             </span>
                         </ShinyButton>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

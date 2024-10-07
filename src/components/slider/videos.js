@@ -1,24 +1,24 @@
 export const videos = [
     {
-        id: "711863471",
+        id: "image1.jpg",
         title: "Cineprint",
         category: "Documentary",
         date: "May 2022",
     },
     {
-        id: "478246234",
+        id: "image2.jpg",
         title: "Yosemite",
         category: "Sci-Fi",
         date: "June 2022",
     },
     {
-        id: "387407107",
+        id: "image3.jpg",
         title: "Orihama",
         category: "Art",
         date: "July 2022",
     },
     {
-        id: "711863471",
+        id: "image4.jpg",
         title: "Grace Rutina",
         category: "Nature",
         date: "August 2022",

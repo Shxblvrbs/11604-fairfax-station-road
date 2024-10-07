@@ -48,16 +48,7 @@ const Menu = ({ isMenuOpen, toggleMenu }) => { // Accept props
   }, [isMenuOpen]);
 
   return (
-    <div className="menu-container" ref={container}>
-      {/* menu-bar */}
-      <div className="menu-bar">
-        <div className="menu-logo">
-          <Link href="/">Codegrid</Link>
-        </div>
-        <div className="menu-open" onClick={toggleMenu}>
-          <p>Menu</p>
-        </div>
-      </div>
+      <div className="menu-container" ref={container}>
 
       {/* menu-overlay */}
       <div className="menu-overlay">
