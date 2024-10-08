@@ -30,10 +30,20 @@ const Slider = () => {
     }, [isClient, sliderRef]);
 
     const initializeCards = () => {
+        let scaler = 0; //adjust the scale of displayed cards
+        if ((videos.length > 4) && (videos.length <= 7)){
+            scaler = 0.625;
+        }
+        else if ((videos.length > 7) && (videos.length <= 10)){
+            scaler = 0.375;
+        }
+        else if ((videos.length > 10) && (videos.length <= 20)){
+            scaler = 0.25;
+        }
         const cards = Array.from(sliderRef.current.querySelectorAll(".card"));
         gsap.to(cards, {
-            y: (i) => 0 + 20 * i + "%",
-            z: (i) => 15 * i,
+            y: (i) => 0 + (20 * scaler) * i + "%",
+            z: (i) => (15 * scaler) * i,
             duration: 1,
             ease: "power3.out",
             stagger: -0.1,
@@ -61,26 +71,26 @@ const Slider = () => {
                         setCurrentFrontCard((prev) => (prev === 0 ? videos.length - 1 : prev - 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
-                        }, 500);
-                    }, 150);
+                        }, 400);
+                    }, 300);
                 },
             });
         };
 
         const animateDown = () => {
             gsap.to(firstCard, {
-                y: "-=150%", // Move the card upwards
-                duration: 0.75,
-                ease: "power3.inOut",
+                y: "+=150%",  // Match the direction with swipeUp
+                duration: 0.75,  // Same duration for consistency
+                ease: "power3.inOut",  // Same easing function as swipeUp
                 onStart: () => {
                     setTimeout(() => {
-                        slider.append(firstCard); // Move first card to the end
-                        initializeCards();
+                        slider.append(firstCard);  // Move first card to the end as before
+                        initializeCards();  // Reinitialize cards
                         setCurrentFrontCard((prev) => (prev === videos.length - 1 ? 0 : prev + 1));  // Update front card index
                         setTimeout(() => {
-                            setIsAnimating(false);
-                        }, 500);
-                    }, 150);
+                            setIsAnimating(false);  // Allow further animations
+                        }, 750);  // Ensure timing matches swipeUp
+                    }, 300);
                 },
             });
         };
@@ -140,7 +150,7 @@ const Slider = () => {
             <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} /> {/* Pass state and function as props */}
             <div className="z-10">
                 <div className="container">
-                    <div className="slider" ref={sliderRef}>
+                    <div className="slider" ref={sliderRef}>    
                         {videos.map((video, index) => (
                             <div
                                 className={`card ${index === currentFrontCard ? "cursor-pointer hover:shadow-lg" : ""}`}

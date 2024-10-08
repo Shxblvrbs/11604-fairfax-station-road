@@ -41,13 +41,13 @@ const Header = () => {
         </h1>
         <h2
           ref={subtitleRef}
-          className="text-base md:text-2xl text-gray-400"
+          className="text-base md:text-2xl text-gray-300"
         >
           11604 Fairfax Station Rd, Fairfax Station, VA 22039
         </h2>
         <p
           ref={subtextRef}
-          className="lg:invisible text-sm md:text-base text-gray-500"
+          className="lg:invisible text-sm md:text-base text-gray-400"
         >
           (Swipe to Interact)
         </p>

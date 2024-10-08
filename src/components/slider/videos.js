@@ -23,4 +23,52 @@ export const videos = [
         category: "Nature",
         date: "August 2022",
     },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
+    {
+        id: "image4.jpg",
+        title: "Grace Rutina",
+        category: "Nature",
+        date: "August 2022",
+    },
 ]
