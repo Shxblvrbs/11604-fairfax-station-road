@@ -71,7 +71,7 @@ const Slider = () => {
                         setCurrentFrontCard((prev) => (prev === 0 ? videos.length - 1 : prev - 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
-                        }, 400);
+                        }, 750);
                     }, 300);
                 },
             });
