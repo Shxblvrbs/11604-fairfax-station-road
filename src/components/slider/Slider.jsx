@@ -30,7 +30,7 @@ const Slider = () => {
     }, [isClient, sliderRef]);
 
     const initializeCards = () => {
-        let scaler = 0; //adjust the scale of displayed cards
+        let scaler = 1; //adjust the scale of displayed cards
         if ((videos.length > 4) && (videos.length <= 7)){
             scaler = 0.625;
         }
@@ -174,11 +174,10 @@ const Slider = () => {
                                         <p>{video.category}</p>
                                     </div>
                                 </div>
-                                <div className="video-player">
+                                <div className="relative overflow-hidden w-full h-full">
                                     <Image
-                                    src="/public/image1.jpg"
-                                    width={100}
-                                    height={100}
+                                    src={`/${video.id}`}
+                                    fill={true}
                                     alt="Picture"
                                     />
                                 </div>
