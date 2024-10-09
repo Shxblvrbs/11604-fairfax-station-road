@@ -134,7 +134,7 @@ const Slider = () => {
     };
 
     return (
-        <div className="-mt-20">
+        <div className="-mt-8 lg:-mt-20">
             <div className="heading">
                 <Header />
             </div>
