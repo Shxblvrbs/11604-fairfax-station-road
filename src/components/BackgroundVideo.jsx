@@ -6,7 +6,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const BackgroundVideo = () => {
   return (
-    <div className="background-video min-h-screen absolute pointer-events-none inset-0 -z-40 h-full opacity-95 lg:-mt-5">
+    <div className="background-video min-h-screen absolute pointer-events-none inset-0 -z-40 h-full opacity-95 -mt-8 lg:-mt-0">
       <ReactPlayer
       url={`https://vimeo.com/1017167084?quality=1080p`} 
       controls={false}

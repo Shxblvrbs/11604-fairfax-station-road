@@ -23,4 +23,16 @@ export const videos = [
         category: "Nature",
         date: "August 2022",
     },
+    {
+        id: "image2.jpg",
+        title: "Orihama",
+        category: "Art",
+        date: "July 2022",
+    },
+    {
+        id: "image1.jpg",
+        title: "Orihama",
+        category: "Art",
+        date: "July 2022",
+    },
 ]

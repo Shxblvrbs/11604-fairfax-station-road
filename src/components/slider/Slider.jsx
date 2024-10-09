@@ -31,14 +31,17 @@ const Slider = () => {
 
     const initializeCards = () => {
         let scaler = 1; //adjust the scale of displayed cards
-        if ((videos.length > 4) && (videos.length <= 7)){
-            scaler = 0.625;
+        if ((videos.length > 4) && (videos.length <= 6)){
+            scaler = 0.6;
         }
-        else if ((videos.length > 7) && (videos.length <= 10)){
-            scaler = 0.375;
+        else if ((videos.length > 6) && (videos.length <= 8)){
+            scaler = 0.4;
         }
-        else if ((videos.length > 10) && (videos.length <= 20)){
-            scaler = 0.25;
+        else if ((videos.length > 8) && (videos.length <= 20)){
+            scaler = 0.125;
+        }
+        else {
+            scaler = 1;
         }
         const cards = Array.from(sliderRef.current.querySelectorAll(".card"));
         gsap.to(cards, {
@@ -71,7 +74,7 @@ const Slider = () => {
                         setCurrentFrontCard((prev) => (prev === 0 ? videos.length - 1 : prev - 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);
-                        }, 750);
+                        }, 1000);
                     }, 300);
                 },
             });
@@ -79,7 +82,7 @@ const Slider = () => {
 
         const animateDown = () => {
             gsap.to(firstCard, {
-                y: "+=150%",  // Match the direction with swipeUp
+                y: "-=150%",  // Match the direction with swipeUp
                 duration: 0.75,  // Same duration for consistency
                 ease: "power3.inOut",  // Same easing function as swipeUp
                 onStart: () => {
@@ -89,7 +92,7 @@ const Slider = () => {
                         setCurrentFrontCard((prev) => (prev === videos.length - 1 ? 0 : prev + 1));  // Update front card index
                         setTimeout(() => {
                             setIsAnimating(false);  // Allow further animations
-                        }, 750);  // Ensure timing matches swipeUp
+                        }, 1000);  // Ensure timing matches swipeUp
                     }, 300);
                 },
             });
@@ -131,7 +134,7 @@ const Slider = () => {
     };
 
     return (
-        <div>
+        <div className="-mt-80 lg:-mt-20">
             <div className="heading">
                 <Header />
             </div>
@@ -184,14 +187,14 @@ const Slider = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="ml-6 invisible lg:visible flex justify-center lg:mt-36">
+                    <div className="ml-6 invisible lg:visible flex lg:mt-72">
                         <ShinyButton
                             id="swipeUp"
                             className="m-2 bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(45,100%,50%)]"
                             onClick={() => handleClick("swipeUp")}
                         >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
-                                <IoIosArrowDropdownCircle className="size-10" />
+                                <IoIosArrowDropdownCircle className="size-8" />
                             </span>
                         </ShinyButton>
                         <ShinyButton
@@ -200,7 +203,7 @@ const Slider = () => {
                             onClick={() => handleClick("swipeDown")}
                         >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
-                                <IoIosArrowDropupCircle className="size-10" />
+                                <IoIosArrowDropupCircle className="size-8" />
                             </span>
                         </ShinyButton>
                     </div>
