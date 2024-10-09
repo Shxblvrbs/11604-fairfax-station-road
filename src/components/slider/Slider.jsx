@@ -134,7 +134,7 @@ const Slider = () => {
     };
 
     return (
-        <div className="-mt-8 lg:-mt-20">
+        <div className="-mt-12 lg:-mt-20">
             <div className="heading">
                 <Header />
             </div>
@@ -187,26 +187,32 @@ const Slider = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="ml-6 invisible lg:visible flex lg:mt-72">
-                        <ShinyButton
-                            id="swipeUp"
-                            className="m-2 bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(45,100%,50%)]"
-                            onClick={() => handleClick("swipeUp")}
-                        >
-                            <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
-                                <IoIosArrowDropdownCircle className="size-8" />
-                            </span>
-                        </ShinyButton>
+
+                <div>
+                    <div className="ml-[1340px] invisible lg:visible flex lg:mt-96">
                         <ShinyButton
                             id="swipeDown"
-                            className="m-2 border-white bg-transparent relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_20px_hsl(45,100%,50%)]"
+                            className="m-2 bg-white/40 relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_33px_hsl(355,40%,33%)]"
                             onClick={() => handleClick("swipeDown")}
-                        >
+                            >
                             <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
-                                <IoIosArrowDropupCircle className="size-8" />
+                                <IoIosArrowDropupCircle className="size-14" />
                             </span>
                         </ShinyButton>
                     </div>
+                    <div className="ml-[1340px] invisible lg:visible flex lg:mt-5">
+                        <ShinyButton
+                            id="swipeUp"
+                            className="m-2 bg-white/40 relative rounded-lg px-5 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out dark:bg-gradient-to-r from-gray-800 to-gray-900 hover:shadow-[0_0_33px_hsl(355,40%,33%)]"
+                            onClick={() => handleClick("swipeUp")}
+                            >
+                            <span className="relative block text-sm uppercase tracking-wide text-gray-300 dark:font-light dark:text-gray-200">
+                                <IoIosArrowDropdownCircle className="size-14" />
+                            </span>
+                        </ShinyButton>
+                    </div>
+                </div>
+                
                 </div>
             </div>
         </div>

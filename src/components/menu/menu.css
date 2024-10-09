@@ -20,6 +20,7 @@
 .menu-close p {
   color: #000;
   cursor: pointer;
+  font-size: 36px;
 }
 
 .menu-overlay {
@@ -29,7 +30,8 @@
   width: 100vw;
   height: 100vh;
   padding: 2em;
-  background: #c5fb45;
+  background: radial-gradient(#AC9C8D, #72383D 140%);
+  opacity: 97%;
   z-index: 2;
   display: flex;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
@@ -58,7 +60,7 @@
 }
 
 .menu-close-icon p {
-  font-size: 100px;
+  /* font-size: 100px; */
   -webkit-text-stroke: 3px #c5fb45;
   line-height: 70%;
 }
