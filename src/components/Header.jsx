@@ -31,7 +31,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full p-4 bg-transparent text-white z-50">
+    <header className="fixed top-0 w-full p-4 bg-transparent text-slate-300 z-50">
       <div className="text-center space-y-2">
         <h1
           ref={titleRef}

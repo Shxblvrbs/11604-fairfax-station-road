@@ -69,7 +69,63 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument;
+type TourContentDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Tour Content documents
+ */
+interface TourContentDocumentData {
+  /**
+   * Title field in *Tour Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_content.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *Tour Content*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_content.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Slice Zone field in *Tour Content*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_content.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TourContentDocumentDataSlicesSlice>;
+}
+
+/**
+ * Tour Content document from Prismic
+ *
+ * - **API ID**: `tour_content`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TourContentDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<TourContentDocumentData>,
+    "tour_content",
+    Lang
+  >;
+
+export type AllDocumentTypes = HomepageDocument | TourContentDocument;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -147,6 +203,9 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      TourContentDocument,
+      TourContentDocumentData,
+      TourContentDocumentDataSlicesSlice,
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,

@@ -1,6 +1,6 @@
 .menu-bar,
 .menu-overlay-bar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -30,11 +30,17 @@
   width: 100vw;
   height: 100vh;
   padding: 2em;
-  background: radial-gradient(#AC9C8D, #72383D 140%);
-  opacity: 97%;
+  background: radial-gradient(#AC9C8D, #72383D 200%);
+  opacity: 100%;
   z-index: 2;
   display: flex;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.menu-overlay::-webkit-scrollbar {
+  display: none;
 }
 
 .menu-close-icon {
