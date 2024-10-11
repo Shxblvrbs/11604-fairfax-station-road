@@ -72,7 +72,7 @@ const Menu = ({ isMenuOpen, toggleMenu }) => { // Accept props
         <Heading as="h1" className="">blog.data.title</Heading>
 
         <Bounded as="article">
-        <div className="rounded-2xl border-2 border-slate-300 bg-[#AC9C8D] bg-opacity-75 -mx-8 py-5 lg:px-2 lg:py-10">
+        <div className="rounded-2xl border-2 border-slate-300 bg-[#322d29] bg-opacity-75 -mx-8 py-5 lg:px-2 lg:py-10">
         <div className="prose prose-lg prose-invert w-full max-w-none text-left">
           <div className="my-10 mx-14 xl:mx-28"> 
             {/* key={index} :: ^here*/}

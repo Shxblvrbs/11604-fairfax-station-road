@@ -30,7 +30,8 @@
   width: 100vw;
   height: 100vh;
   padding: 2em;
-  background: radial-gradient(#72383D, #AC9C8D 250%);
+  background-image: url('./background.png');
+  /* background: radial-gradient(#72383D, #AC9C8D 160%); */
   opacity: 100%;
   z-index: 2;
   display: flex;
