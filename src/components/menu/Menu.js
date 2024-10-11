@@ -71,37 +71,20 @@ const Menu = ({ isMenuOpen, toggleMenu }) => { // Accept props
         <div className="mt-28 lg:ml-12 xl:mb-5 text-center">
         <Heading as="h1" className="">blog.data.title</Heading>
 
-        <div className="mt-8 text-xl font-medium">
-          blog.data.date
-        </div>
-
         <Bounded as="article">
-        <div className="rounded-2xl border-2 border-slate-300 bg-[#72383D] bg-opacity-50 -mx-8 py-5 lg:px-2 lg:py-10">
+        <div className="rounded-2xl border-2 border-slate-300 bg-[#AC9C8D] bg-opacity-75 -mx-8 py-5 lg:px-2 lg:py-10">
         <div className="prose prose-lg prose-invert w-full max-w-none text-left">
-          <div className="mx-14 xl:mx-28"> 
+          <div className="my-10 mx-14 xl:mx-28"> 
             {/* key={index} :: ^here*/}
-              <Image src={`/image1.jpg`} width={800} height={800} className="relative overflow-hidden text-center" />
-              <Heading size="xs" className="mt-20">
+            <div className="">
+              <Image src={`/image1.jpg`} width={1000} height={1000} className="relative overflow-hidden xl:ml-12" />
+            </div>
+              <Heading size="sm" className="mt-20">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Pretium varius adipiscing praesent suspendisse sapien tincidunt. Tellus justo posuere cras magna morbi fames purus. Torquent consequat ad per a orci laoreet odio a. Accumsan aliquam enim ante tristique suspendisse. Montes cubilia ullamcorper dis vestibulum; justo suscipit vehicula etiam. Molestie vitae imperdiet sit a faucibus posuere felis. Tempor dolor phasellus non integer neque posuere sit. Curabitur mauris lectus congue consequat senectus pellentesque.
                 Elementum nostra mauris potenti, porta convallis facilisis? Aenean tristique egestas nostra elit ultricies rutrum class. Varius urna ante dis cubilia massa venenatis. Pretium dapibus tempor orci torquent sit finibus. Imperdiet interdum neque, himenaeos mattis in platea. Donec consectetur accumsan non commodo nullam. Suspendisse faucibus velit ut et iaculis semper tincidunt. Venenatis ridiculus habitant lobortis; elit turpis litora.
                 Dis praesent hac dapibus consequat sem venenatis nisl mus facilisi. Nisi ultricies sit dignissim, lobortis mi ultrices. Lorem tellus adipiscing integer class cubilia aenean. Porttitor eros sit lacus natoque odio ornare. Mollis cras ex mi eget eu senectus ornare. Commodo ultrices est neque; finibus suspendisse mollis velit. Facilisis risus curae mollis conubia lectus dignissim. Taciti turpis ultrices vehicula quam donec in. Aenean primis elementum est natoque magnis praesent cubilia facilisis mattis.
               </Heading>
-              <Heading size="xs" className="mt-20">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Pretium varius adipiscing praesent suspendisse sapien tincidunt. Tellus justo posuere cras magna morbi fames purus. Torquent consequat ad per a orci laoreet odio a. Accumsan aliquam enim ante tristique suspendisse. Montes cubilia ullamcorper dis vestibulum; justo suscipit vehicula etiam. Molestie vitae imperdiet sit a faucibus posuere felis. Tempor dolor phasellus non integer neque posuere sit. Curabitur mauris lectus congue consequat senectus pellentesque.
-                Elementum nostra mauris potenti, porta convallis facilisis? Aenean tristique egestas nostra elit ultricies rutrum class. Varius urna ante dis cubilia massa venenatis. Pretium dapibus tempor orci torquent sit finibus. Imperdiet interdum neque, himenaeos mattis in platea. Donec consectetur accumsan non commodo nullam. Suspendisse faucibus velit ut et iaculis semper tincidunt. Venenatis ridiculus habitant lobortis; elit turpis litora.
-                Dis praesent hac dapibus consequat sem venenatis nisl mus facilisi. Nisi ultricies sit dignissim, lobortis mi ultrices. Lorem tellus adipiscing integer class cubilia aenean. Porttitor eros sit lacus natoque odio ornare. Mollis cras ex mi eget eu senectus ornare. Commodo ultrices est neque; finibus suspendisse mollis velit. Facilisis risus curae mollis conubia lectus dignissim. Taciti turpis ultrices vehicula quam donec in. Aenean primis elementum est natoque magnis praesent cubilia facilisis mattis.
-              </Heading>
-              <Heading size="xs" className="mt-20">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Pretium varius adipiscing praesent suspendisse sapien tincidunt. Tellus justo posuere cras magna morbi fames purus. Torquent consequat ad per a orci laoreet odio a. Accumsan aliquam enim ante tristique suspendisse. Montes cubilia ullamcorper dis vestibulum; justo suscipit vehicula etiam. Molestie vitae imperdiet sit a faucibus posuere felis. Tempor dolor phasellus non integer neque posuere sit. Curabitur mauris lectus congue consequat senectus pellentesque.
-                Elementum nostra mauris potenti, porta convallis facilisis? Aenean tristique egestas nostra elit ultricies rutrum class. Varius urna ante dis cubilia massa venenatis. Pretium dapibus tempor orci torquent sit finibus. Imperdiet interdum neque, himenaeos mattis in platea. Donec consectetur accumsan non commodo nullam. Suspendisse faucibus velit ut et iaculis semper tincidunt. Venenatis ridiculus habitant lobortis; elit turpis litora.
-                Dis praesent hac dapibus consequat sem venenatis nisl mus facilisi. Nisi ultricies sit dignissim, lobortis mi ultrices. Lorem tellus adipiscing integer class cubilia aenean. Porttitor eros sit lacus natoque odio ornare. Mollis cras ex mi eget eu senectus ornare. Commodo ultrices est neque; finibus suspendisse mollis velit. Facilisis risus curae mollis conubia lectus dignissim. Taciti turpis ultrices vehicula quam donec in. Aenean primis elementum est natoque magnis praesent cubilia facilisis mattis.
-              </Heading>
-              <Heading size="xs" className="mt-20">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Pretium varius adipiscing praesent suspendisse sapien tincidunt. Tellus justo posuere cras magna morbi fames purus. Torquent consequat ad per a orci laoreet odio a. Accumsan aliquam enim ante tristique suspendisse. Montes cubilia ullamcorper dis vestibulum; justo suscipit vehicula etiam. Molestie vitae imperdiet sit a faucibus posuere felis. Tempor dolor phasellus non integer neque posuere sit. Curabitur mauris lectus congue consequat senectus pellentesque.
-                Elementum nostra mauris potenti, porta convallis facilisis? Aenean tristique egestas nostra elit ultricies rutrum class. Varius urna ante dis cubilia massa venenatis. Pretium dapibus tempor orci torquent sit finibus. Imperdiet interdum neque, himenaeos mattis in platea. Donec consectetur accumsan non commodo nullam. Suspendisse faucibus velit ut et iaculis semper tincidunt. Venenatis ridiculus habitant lobortis; elit turpis litora.
-                Dis praesent hac dapibus consequat sem venenatis nisl mus facilisi. Nisi ultricies sit dignissim, lobortis mi ultrices. Lorem tellus adipiscing integer class cubilia aenean. Porttitor eros sit lacus natoque odio ornare. Mollis cras ex mi eget eu senectus ornare. Commodo ultrices est neque; finibus suspendisse mollis velit. Facilisis risus curae mollis conubia lectus dignissim. Taciti turpis ultrices vehicula quam donec in. Aenean primis elementum est natoque magnis praesent cubilia facilisis mattis.
-              </Heading>
-              <Heading size="xs" className="mt-20">
+              <Heading size="sm" className="mt-20">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Pretium varius adipiscing praesent suspendisse sapien tincidunt. Tellus justo posuere cras magna morbi fames purus. Torquent consequat ad per a orci laoreet odio a. Accumsan aliquam enim ante tristique suspendisse. Montes cubilia ullamcorper dis vestibulum; justo suscipit vehicula etiam. Molestie vitae imperdiet sit a faucibus posuere felis. Tempor dolor phasellus non integer neque posuere sit. Curabitur mauris lectus congue consequat senectus pellentesque.
                 Elementum nostra mauris potenti, porta convallis facilisis? Aenean tristique egestas nostra elit ultricies rutrum class. Varius urna ante dis cubilia massa venenatis. Pretium dapibus tempor orci torquent sit finibus. Imperdiet interdum neque, himenaeos mattis in platea. Donec consectetur accumsan non commodo nullam. Suspendisse faucibus velit ut et iaculis semper tincidunt. Venenatis ridiculus habitant lobortis; elit turpis litora.
                 Dis praesent hac dapibus consequat sem venenatis nisl mus facilisi. Nisi ultricies sit dignissim, lobortis mi ultrices. Lorem tellus adipiscing integer class cubilia aenean. Porttitor eros sit lacus natoque odio ornare. Mollis cras ex mi eget eu senectus ornare. Commodo ultrices est neque; finibus suspendisse mollis velit. Facilisis risus curae mollis conubia lectus dignissim. Taciti turpis ultrices vehicula quam donec in. Aenean primis elementum est natoque magnis praesent cubilia facilisis mattis.
@@ -112,8 +95,6 @@ const Menu = ({ isMenuOpen, toggleMenu }) => { // Accept props
               /> */}
           </div>
             
-          
-
         </div>
         </div>
         </Bounded>

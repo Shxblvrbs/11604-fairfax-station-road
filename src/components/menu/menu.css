@@ -30,7 +30,7 @@
   width: 100vw;
   height: 100vh;
   padding: 2em;
-  background: radial-gradient(#AC9C8D, #72383D 200%);
+  background: radial-gradient(#72383D, #AC9C8D 250%);
   opacity: 100%;
   z-index: 2;
   display: flex;

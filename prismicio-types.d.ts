@@ -72,11 +72,11 @@ export type HomepageDocument<Lang extends string = string> =
 type TourContentDocumentDataSlicesSlice = never;
 
 /**
- * Content for Tour Content documents
+ * Content for Tour Page documents
  */
 interface TourContentDocumentData {
   /**
-   * Title field in *Tour Content*
+   * Title field in *Tour Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -87,7 +87,7 @@ interface TourContentDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Date field in *Tour Content*
+   * Date field in *Tour Page*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -98,7 +98,7 @@ interface TourContentDocumentData {
   date: prismic.DateField;
 
   /**
-   * Slice Zone field in *Tour Content*
+   * Slice Zone field in *Tour Page*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -110,7 +110,7 @@ interface TourContentDocumentData {
 }
 
 /**
- * Tour Content document from Prismic
+ * Tour Page document from Prismic
  *
  * - **API ID**: `tour_content`
  * - **Repeatable**: `true`
